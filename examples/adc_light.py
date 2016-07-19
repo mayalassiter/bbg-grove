@@ -1,7 +1,7 @@
 import Adafruit_BBIO.GPIO as GPIO
 import time
 import sys
-import grove_i2c_adc
+import grove_I2C_ADC
 
 GPIO.setup("P9_22", GPIO.OUT)
 
@@ -11,7 +11,7 @@ ADC_REF = 3.0
 # Vcc of the grove interface is normally 3.3v
 GROVE_VCC = 3.3
 
-adc = grove_i2c_adc.I2cAdc()
+adc = grove_I2C_ADC.I2cAdc()
 
 def read_light_sensor_values():
     "Read voltage values from Grove Light Sensor"

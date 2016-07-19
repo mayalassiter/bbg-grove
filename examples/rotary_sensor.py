@@ -1,5 +1,5 @@
 import Adafruit_BBIO.GPIO as GPIO
-import grove_i2c_adc
+import grove_I2C_ADC
 import time
 import sys
 
@@ -13,7 +13,7 @@ ADC_REF = 3.0
 # Vcc of the grove interface is normally 3.3v
 GROVE_VCC = 3.3
 
-adc = grove_i2c_adc.I2cAdc()
+adc = grove_I2C_ADC.I2cAdc()
 
 def read_rotary_sensor_values():
 

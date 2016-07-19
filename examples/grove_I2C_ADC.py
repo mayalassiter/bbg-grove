@@ -12,21 +12,24 @@ REG_ADDR_HYST = 0x05
 REG_ADDR_CONVL = 0x06
 REG_ADDR_CONVH = 0x07
 
-getData = int()
-analogVal = int()
+i2c = Adafruit_I2C(ADDR_ADC121)
 
-i2c = Adafruit_I2C(ADDR_ADC121)        
-
-class I2C_ADC():
+class I2cAdc:
     def __init__(self):
         i2c.write8(REG_ADDR_CONFIG, 0x20)
-        
-    def read_adc(self):     
-        data = i2c.readS16(REG_ADDR_RESULT)      
+
+    def read_adc(self):
+        "Read ADC data 0-4095."
+        data_list = i2c.readList(REG_ADDR_RESULT, 2)
+        #print 'data list', data_list
+        data = ((data_list[0] & 0x0f) << 8 | data_list[1]) & 0xfff
         return data
-        
-if __name__=="__main__":
-    adc = I2C_ADC()
+
+if __name__ == '__main__':
+    # Connect the Grove - I2C ADC to I2C Grove port of Beaglebone Green.
+    adc = I2cAdc()
     while True:
-        print 'sensor value ', adc.read_adc()
-        time.sleep(.2)
+         print 'sensor value ', adc.read_adc()
+         time.sleep(.2)
+
+
