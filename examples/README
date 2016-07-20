@@ -1,0 +1,41 @@
+Steps to run the code for basic sensors
+
+1.	led_blink.py
+	- This is the basic led blinking code.
+	- Connect the grove LED sensor to the UART port of the BBG.
+	- The LED turns on and off for 100ms. This time can be changed by changing the value inside the function time.sleep()
+	- To run it : $ python led_blink.py
+	- To stop the program press Ctrl+C
+
+2.	simple_button.py
+	- Connect the grove button sensor to the UART port of the BBG
+	- This code takes in the button press as input and prints the output as “Button press”
+	- If the button is not pressed, a counter is incremented and the count is displayed on the console screen.
+	- To run the program: $ python simple_button.py
+	- To end the program press Ctrl+C
+
+3.	adc_sound.py
+	- The grove sound sensor can be connected to the I2C port of the BBG using the grove I2C_ADC sensor.
+	- Connect the J1 port of the I2C_ADC sensor to the I2C port of the BBG and connect the J2 port of it to the grove sound sensor.
+	- Connect the grove LED sensor to the UART port of the BBG
+	- The code displays – ‘sound detected’ on the console screen as well as lights on the LED for a short period of time else it is turned off.
+	- To run the code: $ python adc_sound.py
+	- To end the program press Ctrl+C
+
+4.	adc_light.py
+	- The grove light sensor can be connected to the I2C port of the BBG using the grove I2C_ADC sensor.
+	- Connect the J1 port of the I2C_ADC sensor to the I2C port of the BBG and connect the J2 port of it to the grove light sensor.
+	- Connect the grove LED sensor to the UART port of the BBG
+	- The grove light sensor detects light and turns on the grove LED sensor. When the light sensor is placed in the dark, it turns off the LED 
+	- To run the code: $ python adc_light.py
+	- To end the program press Ctrl+C
+
+5.	rotary_sensor.py
+	- The rotary sensor also uses the grove I2C_ADC sensor. Connect the J2 port of the grove I2C_ADC sensor to the grove rotary sensor and the J1 port to the I2C port of the BBG
+	- Connect the grove LED sensor to the UART port of the BBG.
+	- The values of angle of rotation can be seen on the console screen as the knob of the rotary sensor is moved.
+	- When the knob of the rotary sensor is moved to its highest value, the LED turns on.
+	- To run the program: $ python rotary_sensor.py
+	- To stop the program press Ctrl+C
+
+
