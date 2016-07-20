@@ -9,6 +9,7 @@ ADC_REF = 3.0
 # Vcc of the grove interface is normally 3.3v
 GROVE_VCC = 3.3
 
+GPIO.setup("P9_22", GPIO.OUT)
 adc = grove_I2C_ADC.I2cAdc()
 
 def read_sound_sensor_values():
@@ -26,9 +27,17 @@ def read_sound_sensor_values():
 if __name__== '__main__':
     try:
         while True:
+            GPIO.output("P9_22", GPIO.LOW)
             # Read voltage values from Grove Sound Sensor
             sensor_voltage_value = read_sound_sensor_values()
-            print "sensor_voltage_value = ", sensor_voltage_value
+            #print "sensor_voltage_value = ", sensor_voltage_value
+            if sensor_voltage_value > 0.04:
+               print "sound detected"
+               GPIO.output("P9_22", GPIO.HIGH)
+               time.sleep(0.3)
+            else:
+               GPIO.output("P9_22", GPIO.LOW)
+               time.sleep(0.1)
     except (KeyboardInterrupt,SystemExit):
             print "Exit"
             sys.exit(0)
